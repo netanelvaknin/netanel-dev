@@ -28,7 +28,7 @@ function MyPosts() {
         }
       )
       .then((res) => {
-        if (res.data === "OK") {
+        if (res.status === 200) {
           window.location.reload();
         }
       });
@@ -36,7 +36,7 @@ function MyPosts() {
 
   return (
     <div>
-      {posts.map((post: any) => {
+      {posts.length > 0 ? posts.map((post: any) => {
         return (
           <div key={post._id}>
             <p>{post.title}</p>
@@ -53,7 +53,7 @@ function MyPosts() {
             </button>
           </div>
         );
-      })}
+      }) : <h1>No posts</h1>}
     </div>
   );
 }

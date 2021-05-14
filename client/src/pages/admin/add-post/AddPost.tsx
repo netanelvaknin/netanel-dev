@@ -12,9 +12,11 @@ function AddPost() {
   const history = useHistory();
   const [cookies] = useCookies();
   const [content, setContent] = useState<string>("");
+  const [description, setDescription] = useState('');
   const { register, setValue, handleSubmit } = useForm({
     defaultValues: {
       title: "",
+      description: "",
     },
   });
   const { postId } = useParams<{ postId: string }>();
@@ -64,7 +66,7 @@ function AddPost() {
           }
         )
         .then((res) => {
-          if (res.data === "OK") {
+          if (res.status === 200) {
             resetFields();
             history.push("/admin/posts");
           }
@@ -77,6 +79,7 @@ function AddPost() {
             content,
             title: formValues.title,
             createdAt: moment().format("LLL"),
+            description: formValues.description
           },
           {
             headers: {
@@ -85,7 +88,7 @@ function AddPost() {
           }
         )
         .then((res) => {
-          if (res.data === "OK") {
+          if (res.status === 200) {
             resetFields();
             history.push("/admin/posts");
           }
@@ -96,6 +99,7 @@ function AddPost() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input {...register("title")} name="title" placeholder="כותרת הפוסט" />
+      <input {...register('description')} name="description" placeholder="תיאור" />
       <ReactQuill
         theme="snow"
         value={content}
