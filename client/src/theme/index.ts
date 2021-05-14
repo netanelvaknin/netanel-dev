@@ -1,4 +1,9 @@
-import { createMuiTheme } from "@material-ui/core";
+import { createMuiTheme, ThemeOptions } from "@material-ui/core";
+
+// type FontType = 'OpenSansHebrew' | 'OpenSansHebrewBold' | 'OpenSansHebrewItalic' | 'OpenSansHebrewLight';
+interface IThemeOptions extends ThemeOptions {
+  fonts: {}
+}
 
 export default createMuiTheme({
   direction: "rtl",
@@ -7,7 +12,7 @@ export default createMuiTheme({
     fontFamily: [
       '-apple-system',
       'BlinkMacSystemFont',
-      'Arimo',
+      'OpenSansHebrew',
       'sans-serif'
     ].join(','),
   },
@@ -28,5 +33,11 @@ export default createMuiTheme({
         width: '100%'
       }
     }
+  },
+  fonts: {
+    regular: 'OpenSansHebrew',
+    bold: 'OpenSansHebrewBold',
+    italic: 'OpenSansHebrewItalic',
+    light: 'OpenSansHebrewLight'
   }
-});
+} as IThemeOptions);

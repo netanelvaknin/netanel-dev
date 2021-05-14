@@ -1,0 +1,43 @@
+@font-face {
+    font-family: "OpenSansHebrew";
+    src: local("OpenSansHebrew"),
+    url("../fonts/OpenSansHebrew-Regular.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "OpenSansHebrewBold";
+    src: local("OpenSansHebrewBold"),
+    url("../fonts/OpenSansHebrew-Bold.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "OpenSansHebrewLight";
+    src: local("OpenSansHebrewLight"),
+    url("../fonts/OpenSansHebrew-Light.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "OpenSansHebrewItalic";
+    src: local("OpenSansHebrewItalic"),
+    url("../fonts/OpenSansHebrew-Italic.ttf") format("truetype");
+    font-weight: normal;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    direction: rtl;
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 2rem;
+    font-family: 'OpenSansHebrew';
+}

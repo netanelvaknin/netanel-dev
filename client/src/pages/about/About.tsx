@@ -1,5 +1,6 @@
+import {AboutStyle} from './AboutStyle';
 function About() {
-  return <div>קצת עליי</div>;
+  return <AboutStyle>קצת עליי</AboutStyle>;
 }
 
 export default About;
