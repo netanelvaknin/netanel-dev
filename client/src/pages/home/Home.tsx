@@ -1,37 +1,25 @@
 import { useFetchPosts } from "../../hooks";
 import { PostModel, PostsContext, PostsContextProps } from "../../context/posts/PostsProvider";
 import { useHistory } from "react-router-dom";
-import {useContext, useEffect} from 'react';
+import {useContext, useEffect, useState} from 'react';
+import Header from './header/Header';
+import Recent from './recent/Recent';
 
-function Home() {
+const Home = () => {
+  const [recentPosts, setRecentPosts] = useState([]);
   const posts: any = useFetchPosts();
-  const context: PostsContextProps | undefined = useContext(PostsContext);
-  const history = useHistory();
+  const postsContext: PostsContextProps | undefined = useContext(PostsContext);
 
   useEffect(() => {
-    context?.setPosts(posts);
+    postsContext?.setPosts(posts);
+    const recent = posts.map((post: PostModel, index: number) => index <= 3 ? post : null);
+    setRecentPosts(recent);
   }, [posts]);
 
   return (
     <div>
-      <h1>דף הבית</h1>
-      <h2>פוסטים אחרונים</h2>
-      {posts.map((post: PostModel, index: number) => {
-        if (index <= 3) {
-          return (
-            <div key={post._id}>
-              <p>{post.title}</p>
-              <p>{post.description}</p>
-              <p>{post.createdAt}</p>
-              <button onClick={() => history.push(`/blog/${post._id}`)}>
-                קריאה
-              </button>
-            </div>
-          );
-        } else {
-          return null;
-        }
-      })}
+      <Header />
+      <Recent recentPosts={recentPosts}/>
     </div>
   );
 }

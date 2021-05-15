@@ -10,7 +10,7 @@ import "moment/locale/he";
 import ContextContainer from "./context/ContextContainer";
 
 ReactDOM.render(
-  <Suspense fallback={<>Loading...</>}>
+  <Suspense fallback={<>טעינה מתבצעת...</>}>
     <Router>
       <CookiesProvider>
         <MuiThemeProvider theme={theme}>

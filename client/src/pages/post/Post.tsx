@@ -10,9 +10,13 @@ const Post = () => {
 
   return (
     <div>
-      <h1>{post?.title}</h1>
-      <h3>{post?.description}</h3>
-      {content}
+      {post && (
+        <>
+          <h1>{post?.title}</h1>
+          <h3>{post?.description}</h3>
+          {content}
+        </>
+      )}
     </div>
   );
 };
