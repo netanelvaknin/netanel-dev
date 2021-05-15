@@ -36,6 +36,9 @@ function Admin() {
           <button onClick={() => history.push(`${url}/posts/insert`)}>
             הוסף פוסט חדש
           </button>
+          <button onClick={() => history.push('/')}>
+            דף הבית
+          </button>
         </nav>
       )}
 

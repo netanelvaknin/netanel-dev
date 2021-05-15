@@ -9,7 +9,6 @@ const addPost = async (req, res) => {
       res.status(200).send("Success!");
     }
   } catch (e) {
-    console.log(e);
     res.status(400).send("Something is wrong with your request");
   }
 };
@@ -50,7 +49,6 @@ const getPosts = async (req, res) => {
     if (req.params.id) {
       posts = await Post.find({ _id: req.params.id });
     } else {
-      console.log('here');
       posts = await Post.find();
     }
 
