@@ -117,6 +117,7 @@ export default AddPost;
 const modules = {
   toolbar: [
     [{ header: [1, 2, false] }],
+    ['blockquote', 'code-block'],
     ["bold", "italic", "underline", "strike", "blockquote"],
     [
       { list: "ordered" },
