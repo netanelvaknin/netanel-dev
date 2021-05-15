@@ -6,14 +6,21 @@ import Header from './header/Header';
 import Recent from './recent/Recent';
 
 const Home = () => {
-  const [recentPosts, setRecentPosts] = useState([]);
+  const [recentPosts, setRecentPosts] = useState<PostModel[] | []>([]);
   const posts: any = useFetchPosts();
   const postsContext: PostsContextProps | undefined = useContext(PostsContext);
 
   useEffect(() => {
     postsContext?.setPosts(posts);
-    const recent = posts.map((post: PostModel, index: number) => index <= 3 ? post : null);
-    setRecentPosts(recent);
+    const reveresedPosts = posts.reverse();
+    const recentPosts: PostModel[] = [];
+    reveresedPosts.forEach((post: PostModel, index: number) => {
+      if (index <= 2) {
+        recentPosts.push(post);
+      }
+    })
+    console.log(recentPosts);
+    setRecentPosts(recentPosts);
   }, [posts]);
 
   return (

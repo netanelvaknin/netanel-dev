@@ -1,14 +1,14 @@
 import { pageRoutes } from "./routes";
 import { Route, Switch } from "react-router-dom";
-import { Navbar } from "../ui";
+import { Navbar, Footer } from "../ui";
 import { Container } from "@material-ui/core";
 import "./app.css";
 
 const App = () => {
   return (
-    <>
+    <div style={{paddingBottom: '6rem'}}>
       <Navbar />
-      <Container maxWidth="md">
+      <Container maxWidth="md" style={{padding: '0 0 15rem 0'}}>
         <Switch>
           {pageRoutes.map(({ path, exact, component }) => {
             return (
@@ -18,8 +18,9 @@ const App = () => {
             );
           })}
         </Switch>
+        <Footer />
       </Container>
-    </>
+    </div>
   );
 };
 
