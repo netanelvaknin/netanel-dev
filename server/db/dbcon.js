@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
 
 module.exports = mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/netanel-dev", {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -11,5 +13,5 @@ module.exports = mongoose
     console.log("CONNECTED TO DATABASE");
   })
   .catch((err) => {
-    console.log("ERROR WITH CONNECTION");
+    console.log(err);
   });
