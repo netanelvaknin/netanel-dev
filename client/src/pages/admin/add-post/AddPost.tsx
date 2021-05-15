@@ -12,7 +12,6 @@ function AddPost() {
   const history = useHistory();
   const [cookies] = useCookies();
   const [content, setContent] = useState<string>("");
-  const [description, setDescription] = useState('');
   const { register, setValue, handleSubmit } = useForm({
     defaultValues: {
       title: "",
@@ -30,9 +29,10 @@ function AddPost() {
 
         setContent(postToEdit.content);
         setValue("title", postToEdit.title);
+        setValue('description', postToEdit.description);
       }
     });
-  }, []);
+  }, [postId, setValue]);
 
   useEffect(() => {
     if (!postId) {

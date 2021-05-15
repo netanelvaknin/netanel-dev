@@ -7,6 +7,7 @@ import { ThemeProvider } from "styled-components";
 import theme from "./theme/index";
 import { CookiesProvider } from "react-cookie";
 import "moment/locale/he";
+import ContextContainer from "./context/ContextContainer";
 
 ReactDOM.render(
   <Suspense fallback={<>Loading...</>}>
@@ -14,7 +15,9 @@ ReactDOM.render(
       <CookiesProvider>
         <MuiThemeProvider theme={theme}>
           <ThemeProvider theme={theme}>
-            <App />
+            <ContextContainer>
+              <App />
+            </ContextContainer>
           </ThemeProvider>
         </MuiThemeProvider>
       </CookiesProvider>

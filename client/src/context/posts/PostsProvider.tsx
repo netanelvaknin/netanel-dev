@@ -1,6 +1,6 @@
 import {createContext, useState} from 'react';
 
-interface PostModel {
+export interface PostModel {
     _id: string;
     content: string;
     title: string;
@@ -12,12 +12,12 @@ interface PostsProviderProps {
     children?: React.ReactNode;
 }
 
-interface PostsContextProps {
+export interface PostsContextProps {
     posts: PostModel[];
     setPosts: (posts: []) => void;
-}
+} 
 
-const PostsContext = createContext<PostsContextProps | undefined>(undefined);
+export const PostsContext = createContext<PostsContextProps | undefined>(undefined);
 
 const PostsProvider = ({children}: PostsProviderProps) => {
     const [posts, setPosts] = useState([]);
