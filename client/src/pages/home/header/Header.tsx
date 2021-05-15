@@ -1,20 +1,42 @@
 import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import styled from 'styled-components/macro';
 
 const Header = () => {
   const history = useHistory();
 
   return (
-    <header>
-      <h1>פרונט אנד בגובה העיניים</h1>
-      <h1>בלוג תכנות קליל</h1>
-      <p>בלי מושגים מפוצצים והסברים מסובכים, כולה תכנות</p>
-      <Button variant="contained" onClick={() => history.push("/blog")}>
-        לבלוג
-      </Button>
-      <Button onClick={() => history.push("/about")}>קצת עליי</Button>
-    </header>
+    <HeaderContainer>
+      <PrimaryHeading>פרונט-אנד בגובה העיניים</PrimaryHeading>
+      <PrimaryHeading>בלוג תכנות קליל</PrimaryHeading>
+      <SecondaryHeading>בלי מושגים מפוצצים והסברים מסובכים, שחררו!</SecondaryHeading>
+      <BlogButton color="secondary" variant="contained" onClick={() => history.push("/blog")}>
+        למעבר לבלוג
+      </BlogButton>
+      <Button variant="outlined" onClick={() => history.push("/about")}>קצת עליי</Button>
+    </HeaderContainer>
   );
 };
+
+const HeaderContainer = styled.header`
+  min-height: 30rem;
+`;
+
+export const PrimaryHeading = styled.h1`
+  font-family: ${props => props.theme.fonts.bold};
+`;
+
+const SecondaryHeading = styled.h2`
+  font-family: ${props => props.theme.fonts.light};
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+`;
+
+const BlogButton = styled(Button)`
+  &,
+  &.MuiButtonBase-root {
+    margin-left: 1.5rem;
+  }
+`;
 
 export default Header;

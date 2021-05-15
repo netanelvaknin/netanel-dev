@@ -17,12 +17,13 @@ export default createMuiTheme({
     ].join(','),
   },
   palette: {
-    // primary: {
-      
-    // },
-    // secondary: {
-      
-    // },
+    primary: {
+      main: '#000',
+      light: 'rgba(0, 0, 0, 0.8)'
+    },
+    secondary: {
+      main: '#f5b149'
+    },
     // error: {
       
     // }
@@ -31,6 +32,32 @@ export default createMuiTheme({
     MuiTextField: {
       root: {
         width: '100%'
+      }
+    },
+    MuiButton: {
+      contained: {
+        '&, &:hover': {
+          width: '18rem',
+          height: '5rem',
+          fontSize: '2rem',
+        }
+      },
+      containedSecondary: {
+        color: '#fff',
+        fontFamily: 'OpenSansHebrewBold'
+      },
+      outlined: {
+        fontSize: '2rem',
+        fontFamily: 'OpenSansHebrewBold',
+        color: 'rgba(0, 0, 0, .8)',
+        height: '5rem',
+        width: '18rem',
+      },
+      text: {
+        '&, &:hover': {
+          textDecoration: 'underline',
+        },
+        fontSize: '2rem'
       }
     }
   },
