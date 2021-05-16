@@ -1,6 +1,6 @@
 import { PostModel } from "../../../context/posts/PostsProvider";
 import { useHistory } from "react-router-dom";
-import { Button, Card, Divider } from "@material-ui/core";
+import { Card } from "@material-ui/core";
 import styled from "styled-components/macro";
 
 interface RecentProps {
@@ -13,7 +13,6 @@ const Recent = ({ recentPosts }: RecentProps) => {
   return (
     <>
       {recentPosts.length > 0 && <RecentPostsPrimaryTitle>מאמרים אחרונים</RecentPostsPrimaryTitle>}
-      <Divider />
       <RecentPostsContainer>
         {recentPosts.map((post) => {
           return (

@@ -3,7 +3,7 @@ import { useFetchPosts } from "../../hooks";
 import { PostModel } from "../../context/posts/PostsProvider";
 import parse, { domToReact } from "html-react-parser";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dark, atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const Post = () => {
   const params: { id: string } = useParams();
@@ -18,7 +18,7 @@ const Post = () => {
 
       if (attribs.class === "ql-syntax") {
         return (
-          <SyntaxHighlighter language="text" style={atomDark}>
+          <SyntaxHighlighter language="javascript" style={atomDark}>
             {domToReact(children, options)}
           </SyntaxHighlighter>
         );

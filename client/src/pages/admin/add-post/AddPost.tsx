@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import moment from "moment";
 import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import styled from "styled-components/macro";
 
 function AddPost() {
   const history = useHistory();
@@ -29,7 +30,7 @@ function AddPost() {
 
         setContent(postToEdit.content);
         setValue("title", postToEdit.title);
-        setValue('description', postToEdit.description);
+        setValue("description", postToEdit.description);
       }
     });
   }, [postId, setValue]);
@@ -79,7 +80,7 @@ function AddPost() {
             content,
             title: formValues.title,
             createdAt: moment().format("LLL"),
-            description: formValues.description
+            description: formValues.description,
           },
           {
             headers: {
@@ -99,13 +100,19 @@ function AddPost() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input {...register("title")} name="title" placeholder="כותרת הפוסט" />
-      <input {...register('description')} name="description" placeholder="תיאור" />
-      <ReactQuill
-        theme="snow"
-        value={content}
-        onChange={onChange}
-        modules={modules}
+      <input
+        {...register("description")}
+        name="description"
+        placeholder="תיאור"
       />
+      <EditorWrapper>
+        <ReactQuill
+          theme="snow"
+          value={content}
+          onChange={onChange}
+          modules={modules}
+        />
+      </EditorWrapper>
 
       <button type="submit">{postId ? "עדכן" : "הוסף"}</button>
     </form>
@@ -114,10 +121,16 @@ function AddPost() {
 
 export default AddPost;
 
+const EditorWrapper = styled.div`
+  .ql-syntax {
+    direction: ltr;
+  }
+`;
+
 const modules = {
   toolbar: [
     [{ header: [1, 2, false] }],
-    ['blockquote', 'code-block'],
+    ["blockquote", "code-block"],
     ["bold", "italic", "underline", "strike", "blockquote"],
     [
       { list: "ordered" },

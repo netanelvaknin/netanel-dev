@@ -1,6 +1,5 @@
 import { useFetchPosts } from "../../hooks";
 import { PostModel, PostsContext, PostsContextProps } from "../../context/posts/PostsProvider";
-import { useHistory } from "react-router-dom";
 import {useContext, useEffect, useState} from 'react';
 import Header from './header/Header';
 import Recent from './recent/Recent';
@@ -19,9 +18,9 @@ const Home = () => {
         recentPosts.push(post);
       }
     })
-    console.log(recentPosts);
+
     setRecentPosts(recentPosts);
-  }, [posts]);
+  }, [posts, postsContext]);
 
   return (
     <div>

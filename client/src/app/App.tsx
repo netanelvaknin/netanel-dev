@@ -2,9 +2,11 @@ import { pageRoutes } from "./routes";
 import { Route, Switch } from "react-router-dom";
 import { Navbar, Footer } from "../ui";
 import { Container } from "@material-ui/core";
+import {useScroll} from '../hooks';
 import "./app.css";
 
 const App = () => {
+  const scrollToTop = useScroll();
   return (
     <div style={{paddingBottom: '6rem'}}>
       <Navbar />

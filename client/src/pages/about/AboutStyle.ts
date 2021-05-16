@@ -1,5 +1,7 @@
-import styled from 'styled-components/macro';
+import styled from "styled-components/macro";
 
 export const AboutStyle = styled.div`
-    font-family: '${props => props.theme.fonts.regular}';
+  p {
+    max-width: 65rem;
+  }
 `;
