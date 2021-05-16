@@ -11,5 +11,5 @@ module.exports = mongoose
     console.log("CONNECTED TO DATABASE");
   })
   .catch((err) => {
-    console.log(err);
+    console.log("conntection error: ", err);
   });
