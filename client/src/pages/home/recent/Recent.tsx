@@ -2,7 +2,7 @@ import { PostModel } from "../../../context/posts/PostsProvider";
 import { useHistory } from "react-router-dom";
 import { Card } from "@material-ui/core";
 import styled from "styled-components/macro";
-
+import {mobile} from '../../../utils/screen-sizes';
 interface RecentProps {
   recentPosts: PostModel[];
 }
@@ -32,6 +32,10 @@ const RecentPostsContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
+  @media ${mobile} {
+    flex-direction: column;
+  }
+
   & > *:last-child {
     margin-left: 0;
   }
@@ -42,6 +46,12 @@ const RecentPost = styled(Card)`
   padding: 2rem;
   margin-left: 2rem;
   cursor: pointer;
+
+  @media ${mobile} {
+    margin-left: 0;
+    margin-bottom: 2.5rem;
+  }
+
   &:hover {
     background: rgba(0, 0, 0, 0.04);
   }

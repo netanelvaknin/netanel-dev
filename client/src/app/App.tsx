@@ -4,11 +4,13 @@ import { Navbar, Footer } from "../ui";
 import { Container } from "@material-ui/core";
 import {useScroll} from '../hooks';
 import "./app.css";
+import styled from 'styled-components/macro';
+import {mobile} from '../utils/screen-sizes';
 
 const App = () => {
   const scrollToTop = useScroll();
   return (
-    <div style={{paddingBottom: '6rem'}}>
+    <AppContainer>
       <Navbar />
       <Container maxWidth="md" style={{padding: '0 0 15rem 0'}}>
         <Switch>
@@ -22,8 +24,16 @@ const App = () => {
         </Switch>
         <Footer />
       </Container>
-    </div>
+    </AppContainer>
   );
 };
+
+const AppContainer = styled.div`
+  padding-bottom: 6rem;
+
+  @media ${mobile} {
+    padding: 2rem 2rem 3rem;
+  }
+`;
 
 export default App;

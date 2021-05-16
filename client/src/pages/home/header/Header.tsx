@@ -1,6 +1,7 @@
 import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components/macro";
+import {mobile} from '../../../utils/screen-sizes';
 
 const Header = () => {
   const history = useHistory();
@@ -12,7 +13,7 @@ const Header = () => {
       <SecondaryHeading>
         בלי מושגים מפוצצים והסברים מסובכים, שחררו!
       </SecondaryHeading>
-      <div>
+      <ButtonsContainer>
         <BlogButton
           color="secondary"
           variant="contained"
@@ -23,13 +24,18 @@ const Header = () => {
         <Button variant="outlined" onClick={() => history.push("/about")}>
           קצת עליי
         </Button>
-      </div>
+      </ButtonsContainer>
     </HeaderContainer>
   );
 };
 
 const HeaderContainer = styled.header`
   min-height: 29rem;
+
+  @media ${mobile} {
+    margin-bottom: 6rem;
+    padding-top: 3rem;
+  }
 `;
 
 export const PrimaryHeading = styled.h1`
@@ -40,6 +46,14 @@ const SecondaryHeading = styled.h2`
   font-family: ${(props) => props.theme.fonts.light};
   margin-top: 2rem;
   margin-bottom: 2rem;
+`;
+
+const ButtonsContainer = styled.div`
+  display: flex;
+
+  @media ${mobile} {
+    margin-bottom: 3rem;
+  }
 `;
 
 const BlogButton = styled(Button)`

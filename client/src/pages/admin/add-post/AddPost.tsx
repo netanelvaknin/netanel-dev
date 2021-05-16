@@ -79,7 +79,7 @@ function AddPost() {
           {
             content,
             title: formValues.title,
-            createdAt: moment().format("LLL"),
+            createdAt: moment().format("ll"),
             description: formValues.description,
           },
           {

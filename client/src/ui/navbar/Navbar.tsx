@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components/macro";
+import {mobile} from '../../utils/screen-sizes';
 
 export const Navbar = () => {
   const navLinks = [
@@ -31,7 +32,10 @@ const NavbarContainer = styled.nav`
   margin: 0 auto;
   padding: 0 2.4rem;
   box-sizing: border-box;
-  transition: all 3s;
+
+  @media ${mobile} {
+    height: 8rem;
+  }
 
   & > .selected {
     position: relative;
