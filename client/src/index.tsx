@@ -11,7 +11,7 @@ import ContextContainer from "./context/ContextContainer";
 
 ReactDOM.render(
   <Suspense fallback={<div>טעינה מתבצעת...</div>}>
-    <Router>
+    <Router basename="/">
       <CookiesProvider>
         <ContextContainer>
           <MuiThemeProvider theme={theme}>
