@@ -18,9 +18,9 @@ const Home = () => {
         recentPosts.push(post);
       }
     })
-
+    console.log(recentPosts);
     setRecentPosts(recentPosts);
-  }, [posts, postsContext]);
+  }, [posts]);
 
   return (
     <div>

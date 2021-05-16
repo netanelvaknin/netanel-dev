@@ -1,28 +1,28 @@
 @font-face {
   font-family: "OpenSansHebrew";
   src: local("OpenSansHebrew"),
-    url("../fonts/OpenSansHebrew-Regular.ttf") format("truetype");
+    url("../assets/fonts/OpenSansHebrew-Regular.ttf") format("truetype");
   font-weight: normal;
 }
 
 @font-face {
   font-family: "OpenSansHebrewBold";
   src: local("OpenSansHebrewBold"),
-    url("../fonts/OpenSansHebrew-Bold.ttf") format("truetype");
+    url("../assets/fonts/OpenSansHebrew-Bold.ttf") format("truetype");
   font-weight: normal;
 }
 
 @font-face {
   font-family: "OpenSansHebrewLight";
   src: local("OpenSansHebrewLight"),
-    url("../fonts/OpenSansHebrew-Light.ttf") format("truetype");
+    url("../assets/fonts/OpenSansHebrew-Light.ttf") format("truetype");
   font-weight: normal;
 }
 
 @font-face {
   font-family: "OpenSansHebrewItalic";
   src: local("OpenSansHebrewItalic"),
-    url("../fonts/OpenSansHebrew-Italic.ttf") format("truetype");
+    url("../assets/fonts/OpenSansHebrew-Italic.ttf") format("truetype");
   font-weight: normal;
 }
 
