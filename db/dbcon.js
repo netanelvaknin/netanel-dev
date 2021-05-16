@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
 
 module.exports = mongoose
   .connect(process.env.MONGODB_URI, {
@@ -11,5 +13,5 @@ module.exports = mongoose
     console.log("CONNECTED TO DATABASE");
   })
   .catch((err) => {
-    console.log("conntection error: ", err);
+    console.log(err);
   });
