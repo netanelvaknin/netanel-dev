@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const MONGODB_URI = process.env.MONGODB_URI;
-module.exports = mongoose
+module.exports = mongoose  
   .connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -14,6 +14,6 @@ module.exports = mongoose
     console.log("CONNECTED TO DATABASE");
   })
   .catch((err) => {
-    console.log('PROCESS ENV MONGODB URI ***************', process.env)
+    console.log('PROCESS ENV MONGODB URI ***************', process.env.MONGODB_URI)
     console.log("******* ERROR:", err);
   });
