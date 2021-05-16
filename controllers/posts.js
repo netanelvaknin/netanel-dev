@@ -53,7 +53,8 @@ const getPosts = async (req, res) => {
     }
 
     res.status(200).send(posts);
-  } catch {
+  } catch (e) {
+    console.log("ERROR: ", e);
     res.status(400).send("Something went wrong");
   }
 };
