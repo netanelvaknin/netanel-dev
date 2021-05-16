@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require('path');
 require("./db/dbcon");
 
 const PORT = process.env.PORT || 5000;
