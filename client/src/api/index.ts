@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instanceConfig = {
-    baseURL: '/',
+    baseURL: 'http://localhost:5000',
     headers: {
         "Content-type": "application/json",
         'Accept': 'application/json'
