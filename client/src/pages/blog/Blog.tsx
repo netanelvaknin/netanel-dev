@@ -12,7 +12,7 @@ function Blog() {
   return (
     <BlogContainer postsLength={posts.length}>
       {posts.length > 0 ? (
-        posts?.reverse().map((post: PostModel, index: number) => {
+        posts?.map((post: PostModel, index: number) => {
           return (
             <PostContainer
               key={post._id}
