@@ -8,10 +8,9 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <PrimaryHeading>פרונט-אנד בגובה העיניים - </PrimaryHeading>
-      <PrimaryHeading>בלוג תכנות קליל</PrimaryHeading>
+      <PrimaryHeading>פרונט-אנד בגובה העיניים</PrimaryHeading>
       <SecondaryHeading>
-        בלי מושגים מפוצצים והסברים מסובכים, שחררו!
+        חדשים בעולם ה- Web ? מחפשים תוכן בעברית ? הגעתם למקום הנכון. תוכלו למצוא כאן מאמרים קלילים בעברית ובלי מושגים מפוצצים.
       </SecondaryHeading>
       <ButtonsContainer>
         <BlogButton
@@ -19,10 +18,10 @@ const Header = () => {
           variant="contained"
           onClick={() => history.push("/blog")}
         >
-          מעבר לבלוג
+          למאמרים
         </BlogButton>
         <Button variant="outlined" onClick={() => history.push("/about")}>
-          קצת עליי
+          איך זה עובד
         </Button>
       </ButtonsContainer>
     </HeaderContainer>
@@ -31,6 +30,7 @@ const Header = () => {
 
 const HeaderContainer = styled.header`
   min-height: 29rem;
+  max-width: 58rem;
 
   @media ${mobile} {
     margin-bottom: 6rem;

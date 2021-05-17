@@ -30,10 +30,10 @@ function Blog() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <img
             src={loader}
-            alt="טוען פוסטים"
+            alt="טוען מאמרים"
             style={{ width: "20rem", height: "20rem" }}
           />
-          <h2 style={{textAlign: 'center', fontSize: '3rem'}}>פוסטים בטעינה</h2>
+          <h2 style={{textAlign: 'center', fontSize: '3rem'}}>מאמרים בטעינה</h2>
         </div>
       )}
     </BlogContainer>

@@ -5,8 +5,8 @@ import {mobile} from '../../utils/screen-sizes';
 export const Navbar = () => {
   const navLinks = [
     { to: "/", text: "דף הבית", exact: true },
-    { to: "/blog", text: "בלוג", exact: false },
-    { to: "/about", text: "קצת עליי", exact: true },
+    { to: "/blog", text: "מאמרים", exact: false },
+    { to: "/about", text: "מידע נוסף", exact: true },
   ];
 
   return (

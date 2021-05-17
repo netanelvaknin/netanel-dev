@@ -31,10 +31,10 @@ function Admin() {
           }}
         >
           <button onClick={() => history.push(`${url}/posts`)}>
-            הפוסטים שלי
+            המאמרים שלי
           </button>
           <button onClick={() => history.push(`${url}/posts/insert`)}>
-            הוסף פוסט חדש
+            הוסף מאמר חדש
           </button>
           <button onClick={() => history.push('/')}>
             דף הבית

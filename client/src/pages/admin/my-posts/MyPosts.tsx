@@ -5,12 +5,15 @@ import { useCookies } from "react-cookie";
 
 function MyPosts() {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
   const [cookies] = useCookies();
 
   useEffect(() => {
+    setLoading(true);
     instance.get("/posts").then((response) => {
       setPosts(response.data);
+      setLoading(false);
     });
   }, []);
 
@@ -53,7 +56,11 @@ function MyPosts() {
             </button>
           </div>
         );
-      }) : <h1>No posts</h1>}
+      }) : (
+        <div>
+          {loading ? <h1>Loading...</h1> : <h1>No posts</h1>}
+        </div>
+      )}
     </div>
   );
 }
