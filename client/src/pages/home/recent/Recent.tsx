@@ -41,13 +41,23 @@ const Recent = ({ recentPosts }: RecentProps) => {
 
 const RecentPostLoader = () => {
   return (
-    <div style={{flex: 1, margin: '0 0 2rem 1rem'}}>
-      <Skeleton animation="wave" width="100%"/>
-      <Skeleton animation="wave" width="100%"/>
-      <Skeleton animation="wave" width="100%"/>
-    </div>
+    <SkeletonStyle>
+      <Skeleton  animation="wave" />
+      <Skeleton width="60%" height="5rem" animation="wave" />
+    </SkeletonStyle>
   );
 };
+
+const SkeletonStyle = styled.div`
+  flex: 1;
+  margin: 0 0 2rem 2rem;
+
+  .MuiSkeleton-root {
+    width: 100%;
+    height: 10.1rem;
+    margin-bottom: 1rem;
+  }
+`;
 
 const RecentPostsContainer = styled.div`
   margin-top: 2rem;

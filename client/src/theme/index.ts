@@ -59,6 +59,11 @@ export default createMuiTheme({
         },
         fontSize: '2rem'
       }
+    },
+    MuiSkeleton: {
+      text: {
+        transform: 'unset'
+      }
     }
   },
   fonts: {

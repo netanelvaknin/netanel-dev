@@ -13,7 +13,8 @@ import {
   EmailIcon,
 } from "react-share";
 import styled from "styled-components/macro";
-import {mobile} from '../../utils/screen-sizes';
+import { mobile } from "../../utils/screen-sizes";
+import loader from "../../assets/gifs/loader.gif";
 
 const Post = () => {
   const params: { id: string } = useParams();
@@ -40,34 +41,52 @@ const Post = () => {
 
   return (
     <div>
-      {post && (
+      {post ? (
         <PostStyle>
           <h1>{post?.title}</h1>
           <SecondaryHeading>{post?.description}</SecondaryHeading>
           {parsedHTML}
         </PostStyle>
+      ) : (
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <img
+            src={loader}
+            alt="טוען פוסט"
+            style={{ width: "20rem", height: "20rem", margin: "0 auto" }}
+          />
+          <h2 style={{ textAlign: "center", fontSize: "3rem" }}>
+            טוען את הפוסט
+          </h2>
+        </div>
       )}
 
-      <strong style={{marginTop: '5rem', display: 'block'}}>קדימה להפיץ :)</strong>
-      <ShareIconsContainer>
-        <FacebookShareButton
-          url={`https://netanel-dev.co.il/blog/${post?._id}`}
-        >
-          <FacebookIcon />
-        </FacebookShareButton>
-        <EmailShareButton url={`https://netanel-dev.co.il/blog/${post?._id}`}>
-          <EmailIcon />
-        </EmailShareButton>
-        <WhatsappShareButton
-          url={`https://netanel-dev.co.il/blog/${post?._id}`}
-        >
-          <WhatsappIcon />
-        </WhatsappShareButton>
-      </ShareIconsContainer>
+      {post && (
+        <>
+          <strong style={{ marginTop: "5rem", display: "block" }}>
+            קדימה להפיץ :)
+          </strong>
+          <ShareIconsContainer>
+            <FacebookShareButton
+              url={`https://netanel-dev.co.il/blog/${post?._id}`}
+            >
+              <FacebookIcon />
+            </FacebookShareButton>
+            <EmailShareButton
+              url={`https://netanel-dev.co.il/blog/${post?._id}`}
+            >
+              <EmailIcon />
+            </EmailShareButton>
+            <WhatsappShareButton
+              url={`https://netanel-dev.co.il/blog/${post?._id}`}
+            >
+              <WhatsappIcon />
+            </WhatsappShareButton>
+          </ShareIconsContainer>
+        </>
+      )}
     </div>
   );
 };
-
 
 const PostStyle = styled.div`
   iframe {
@@ -86,7 +105,7 @@ const PostStyle = styled.div`
   }
 
   strong {
-    font-family: ${props => props.theme.fonts.bold};
+    font-family: ${(props) => props.theme.fonts.bold};
   }
 
   img {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import instance from "../api";
 
-export const useFetchPosts = (id = '') => {
+export const useFetchPosts = (id = "") => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -14,6 +14,10 @@ export const useFetchPosts = (id = '') => {
         setPosts(res.data);
       });
     }
+
+    return () => {
+      setPosts([]);
+    };
   }, [id]);
 
   return posts;
