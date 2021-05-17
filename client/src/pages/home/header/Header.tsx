@@ -21,7 +21,7 @@ const Header = () => {
           למאמרים
         </BlogButton>
         <Button variant="outlined" onClick={() => history.push("/about")}>
-          איך זה עובד
+          קצת עליי
         </Button>
       </ButtonsContainer>
     </HeaderContainer>

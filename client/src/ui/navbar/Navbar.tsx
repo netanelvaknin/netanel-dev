@@ -6,7 +6,7 @@ export const Navbar = () => {
   const navLinks = [
     { to: "/", text: "דף הבית", exact: true },
     { to: "/blog", text: "מאמרים", exact: false },
-    { to: "/about", text: "מידע נוסף", exact: true },
+    { to: "/about", text: "קצת עליי", exact: true },
   ];
 
   return (
