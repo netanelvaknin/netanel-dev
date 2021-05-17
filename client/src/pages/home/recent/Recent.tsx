@@ -2,7 +2,9 @@ import { PostModel } from "../../../context/posts/PostsProvider";
 import { useHistory } from "react-router-dom";
 import { Card } from "@material-ui/core";
 import styled from "styled-components/macro";
-import {mobile} from '../../../utils/screen-sizes';
+import { mobile } from "../../../utils/screen-sizes";
+import { Skeleton } from "@material-ui/lab";
+
 interface RecentProps {
   recentPosts: PostModel[];
 }
@@ -12,17 +14,38 @@ const Recent = ({ recentPosts }: RecentProps) => {
 
   return (
     <>
-      {recentPosts.length > 0 && <RecentPostsPrimaryTitle>מאמרים אחרונים</RecentPostsPrimaryTitle>}
+      {<RecentPostsPrimaryTitle>מאמרים אחרונים</RecentPostsPrimaryTitle>}
       <RecentPostsContainer>
-        {recentPosts.map((post) => {
-          return (
-            <RecentPost key={post?._id} onClick={() => history.push(`/blog/${post._id}`)}>
-              <CardTitle>{post?.title}</CardTitle>
-            </RecentPost>
-          );
-        })}
+        {recentPosts.length > 0 ? (
+          recentPosts.map((post) => {
+            return (
+              <RecentPost
+                key={post?._id}
+                onClick={() => history.push(`/blog/${post._id}`)}
+              >
+                <CardTitle>{post?.title}</CardTitle>
+              </RecentPost>
+            );
+          })
+        ) : (
+          <>
+            <RecentPostLoader />
+            <RecentPostLoader />
+            <RecentPostLoader />
+          </>
+        )}
       </RecentPostsContainer>
     </>
+  );
+};
+
+const RecentPostLoader = () => {
+  return (
+    <div style={{flex: 1, margin: '0 0 2rem 1rem'}}>
+      <Skeleton animation="wave" width="100%"/>
+      <Skeleton animation="wave" width="100%"/>
+      <Skeleton animation="wave" width="100%"/>
+    </div>
   );
 };
 
@@ -65,10 +88,13 @@ const Title = styled.h1`
 
 const RecentPostsPrimaryTitle = styled(Title)`
   margin-bottom: 2rem;
+  font-family: ${(props) => props.theme.fonts.bold};
 `;
 
 export const CardTitle = styled(Title)`
   min-height: 7rem;
+  font-family: ${(props) => props.theme.fonts.regular};
+  font-size: 2.2rem;
 `;
 
 export default Recent;

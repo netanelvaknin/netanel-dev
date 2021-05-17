@@ -36,6 +36,11 @@ const FooterStyle = styled(Container)`
 
   @media ${mobile} {
     right: 0;
+
+    hr {
+      max-width: 90%;
+      margin: 0 auto;
+    }
   }
 `;
 

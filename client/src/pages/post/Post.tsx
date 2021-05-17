@@ -13,6 +13,7 @@ import {
   EmailIcon,
 } from "react-share";
 import styled from "styled-components/macro";
+import {mobile} from '../../utils/screen-sizes';
 
 const Post = () => {
   const params: { id: string } = useParams();
@@ -72,6 +73,25 @@ const PostStyle = styled.div`
   iframe {
     width: 100%;
     min-height: 35rem;
+  }
+
+  pre {
+    @media ${mobile} {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media ${mobile} {
+    padding-top: 3rem;
+  }
+
+  strong {
+    font-family: ${props => props.theme.fonts.bold};
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
   }
 `;
 
