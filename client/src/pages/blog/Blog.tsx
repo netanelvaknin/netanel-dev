@@ -2,8 +2,8 @@ import { useFetchPosts } from "../../hooks";
 import { PostModel } from "../../context/posts/PostsProvider";
 import styled from "styled-components/macro";
 import { useHistory } from "react-router-dom";
-import { Skeleton } from "@material-ui/lab";
 import loader from "../../assets/gifs/loader.gif";
+import Newsletter from "../home/newsletter/Newsletter";
 
 function Blog() {
   const posts = useFetchPosts();
@@ -12,20 +12,24 @@ function Blog() {
   return (
     <BlogContainer postsLength={posts.length}>
       {posts.length > 0 ? (
-        posts?.map((post: PostModel, index: number) => {
-          return (
-            <PostContainer
-              key={post._id}
-              onClick={() => history.push(`/blog/${post._id}`)}
-            >
-              <PostNumber>{index + 1}</PostNumber>
-              <div>
-                <h2>{post.title}</h2>
-                <CreatedAtText>נכתב בתאריך: {post.createdAt}</CreatedAtText>
-              </div>
-            </PostContainer>
-          );
-        })
+        <>
+          <p>את המאמרים יש לקרוא לפי סדר המספרים. קריאה מהנה.</p>
+          {posts?.map((post: PostModel, index: number) => {
+            return (
+              <PostContainer
+                key={post._id}
+                onClick={() => history.push(`/blog/${post._id}`)}
+              >
+                <PostNumber>{index + 1}</PostNumber>
+                <div>
+                  <h2>{post.title}</h2>
+                  <CreatedAtText>נכתב בתאריך: {post.createdAt}</CreatedAtText>
+                </div>
+              </PostContainer>
+            );
+          })}
+          <Newsletter title="אהבתם? הרשמו לניווזלטר שלי" />
+        </>
       ) : (
         <div style={{ display: "flex", flexDirection: "column" }}>
           <img
@@ -33,7 +37,9 @@ function Blog() {
             alt="טוען מאמרים"
             style={{ width: "20rem", height: "20rem" }}
           />
-          <h2 style={{textAlign: 'center', fontSize: '3rem'}}>מאמרים בטעינה</h2>
+          <h2 style={{ textAlign: "center", fontSize: "3rem" }}>
+            מאמרים בטעינה
+          </h2>
         </div>
       )}
     </BlogContainer>

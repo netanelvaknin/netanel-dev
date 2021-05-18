@@ -3,6 +3,7 @@ import { PostModel, PostsContext, PostsContextProps } from "../../context/posts/
 import {useContext, useEffect, useState} from 'react';
 import Header from './header/Header';
 import Recent from './recent/Recent';
+import Newsletter from './newsletter/Newsletter';
 
 const Home = () => {
   const [recentPosts, setRecentPosts] = useState<PostModel[] | []>([]);
@@ -26,6 +27,7 @@ const Home = () => {
     <div>
       <Header />
       <Recent recentPosts={recentPosts}/>
+      <Newsletter />
     </div>
   );
 }

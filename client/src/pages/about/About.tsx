@@ -13,7 +13,7 @@ function About() {
         <p>שמי נתנאל וקנין, אני מתכנת פרונט-אנד בשנה השלישית לקריירה שלי.</p>
         <p>
           כיום אני עובד בחברת{" "}
-          <a href="https://www.555.co.il" target="_blank">
+          <a href="https://www.555.co.il" target="_blank" rel="noreferrer">
             ביטוח ישיר
           </a>{" "}
           כחלק מצוות הפרונט-אנד שמפתח בריאקט.

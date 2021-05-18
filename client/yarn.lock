@@ -8116,7 +8116,14 @@
     "css-vendor" "^2.0.8"
     "jss" "10.6.0"
 
-"jss@^10.5.1", "jss@10.6.0":
+"jss-rtl@^0.3.0":
+  "integrity" "sha512-rg9jJmP1bAyhNOAp+BDZgOP/lMm4+oQ76qGueupDQ68Wq+G+6SGvCZvhIEg8OHSONRWOwFT6skCI+APGi8DgmA=="
+  "resolved" "https://registry.npmjs.org/jss-rtl/-/jss-rtl-0.3.0.tgz"
+  "version" "0.3.0"
+  dependencies:
+    "rtl-css-js" "^1.13.1"
+
+"jss@^10.0.0", "jss@^10.5.1", "jss@^10.6.0", "jss@10.6.0":
   "integrity" "sha512-n7SHdCozmxnzYGXBHe0NsO0eUf9TvsHVq2MXvi4JmTn3x5raynodDVE/9VQmBdWFyyj9HpHZ2B4xNZ7MMy7lkw=="
   "resolved" "https://registry.npmjs.org/jss/-/jss-10.6.0.tgz"
   "version" "10.6.0"
@@ -10658,10 +10665,10 @@
   "resolved" "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-6.0.9.tgz"
   "version" "6.0.9"
 
-"react-hook-form@^7.0.0", "react-hook-form@^7.3.6":
-  "integrity" "sha512-3LRjxMDn+CUKZ2G9TA9BgNQXX7M9I8WcE5GkcMNg6eOHa9mFc+uF6rKY9QAKlNNjKhdL1atOmOTVBEj2gJVuEQ=="
-  "resolved" "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.3.6.tgz"
-  "version" "7.3.6"
+"react-hook-form@^7.0.0", "react-hook-form@^7.6.1":
+  "integrity" "sha512-wwLBe9NKtXYdCErx/+0UTG05toNYKi6/HnoLa8/W0EjqyDXnCByheNpszyFhUmljNdxrr0nBcSyf2K/Fdx1LDQ=="
+  "resolved" "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.6.1.tgz"
+  "version" "7.6.1"
 
 "react-is@^16.6.0":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
@@ -11350,6 +11357,13 @@
   "integrity" "sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA=="
   "resolved" "https://registry.npmjs.org/rsvp/-/rsvp-4.8.5.tgz"
   "version" "4.8.5"
+
+"rtl-css-js@^1.13.1":
+  "integrity" "sha512-G9N1s/6329FpJr8k9e1U/Lg0IDWThv99sb7k0IrXHjSnubxe01h52/ajsPRafJK1/2Vqrhz3VKLe3E1dx6jS9Q=="
+  "resolved" "https://registry.npmjs.org/rtl-css-js/-/rtl-css-js-1.14.1.tgz"
+  "version" "1.14.1"
+  dependencies:
+    "@babel/runtime" "^7.1.2"
 
 "run-parallel@^1.1.9":
   "integrity" "sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA=="

@@ -24,9 +24,9 @@ export default createMuiTheme({
     secondary: {
       main: '#f5b149'
     },
-    // error: {
-      
-    // }
+    error: {
+      main: '#cc0000'
+    }
   },
   overrides: {
     MuiTextField: {

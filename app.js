@@ -9,12 +9,14 @@ app.use(cors());
 const postsRoute = require("./routes/posts");
 const adminRoute = require("./routes/admin");
 const userRoute = require("./routes/users");
+const newsLetterRoute = require("./routes/newsletter");
 
 app.use(express.json({ limit: "25mb" }));
 app.use(express.urlencoded({ limit: "25mb", extended: true }));
 app.use(postsRoute);
 app.use(adminRoute);
 app.use(userRoute);
+app.use(newsLetterRoute);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
