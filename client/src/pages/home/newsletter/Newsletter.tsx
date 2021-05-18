@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import instance from "../../../api";
 import styled from "styled-components/macro";
+import {useSmallScreen} from '../../../hooks/useSmallScreen';
 
 interface NewsletterProps {
     title?: string;
@@ -21,6 +22,7 @@ const Newsletter = ({
     title = 'הרשמו עכשיו לניווזלטר שלי ותקבלו עדכונים שוטפים'
 }: NewsletterProps) => {
   const [registered, setRegistered] = useState(false);
+  const isSmallScreen = useSmallScreen();
   const {
     register,
     handleSubmit,
@@ -45,9 +47,9 @@ const Newsletter = ({
       }
     }
   };
-
+  
   return (
-    <div style={{ marginTop: "9rem" }}>
+    <div style={{ marginTop: isSmallScreen ? "6rem" : "9rem" }}>
       {registered ? (
         <>
           <PrimaryHeading>ההרשמה לעדכוני הניווזלטר נקלטה</PrimaryHeading>
