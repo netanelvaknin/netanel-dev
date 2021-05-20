@@ -3,10 +3,11 @@ const validator = require("validator");
 
 const registerToNewsletter = async (req, res) => {
   const email = req.body.email;
-  console.log(email);
   try {
     if (validator.isEmail(email)) {
-      const doc = await Newsletter.create({email});
+      const doc = await Newsletter.create({
+        email,
+      });
 
       if (doc) {
         res.status(200).send("Successfuly registered");
@@ -17,7 +18,7 @@ const registerToNewsletter = async (req, res) => {
       res.status(400).send("Please provide valid email");
     }
   } catch (e) {
-    res.status(400).send("Something went wrong");
+    res.status(400).send(e);
   }
 };
 

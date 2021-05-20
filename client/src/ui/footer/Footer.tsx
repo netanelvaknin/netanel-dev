@@ -17,13 +17,13 @@ export const Footer = () => {
           <Content>
             <p style={{ marginBottom: "1rem" }}>מוזמנים להתחבר</p>
             <IconsContainer>
-              <a href="https://www.facebook.com/vakninetanel">
+              <a href="https://www.facebook.com/vakninetanel" target="_blank" rel="noreferrer">
                 <FacebookIcon />
               </a>
-              <a href="https://github.com/netanelvaknin">
+              <a href="https://github.com/netanelvaknin" target="_blank" rel="noreferrer">
                 <GithubIcon />
               </a>
-              <a href="https://www.linkedin.com/in/netanel-vaknin">
+              <a href="https://www.linkedin.com/in/netanel-vaknin" target="_blank" rel="noreferrer">
                 <LinkedinIcon />
               </a>
             </IconsContainer>

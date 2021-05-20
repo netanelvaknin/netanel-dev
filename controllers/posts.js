@@ -1,4 +1,7 @@
 const Post = require("../models/posts");
+const Newsletter = require("../models/newsletters");
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const addPost = async (req, res) => {
   const post = req.body;
@@ -11,6 +14,48 @@ const addPost = async (req, res) => {
   } catch (e) {
     res.status(400).send("Something is wrong with your request");
   }
+  
+  // const post = req.body;
+
+  // Newsletter.find()
+  //   .then((users) => {
+  //     if (users) {
+  //       const emails = users.map((user) => {
+  //         return user.email;
+  //       });
+
+  //       return emails;
+  //     }
+  //   })
+  //   .then((emails) => {
+  //     Post.create(post).then((post) => {
+  //       if (post) {
+  //         res.status(200).send("Success!");
+  //       }
+  //     });
+
+  //     // Send emails to :
+  //     const msg = {
+  //       from: "easydevdotdev@gmail.com",
+  //       to: emails,
+  //       template_id: 'd-6c3d464c4c3c472b8cb2aa37be7236ec',
+  //       dynamicTemplateData: {
+  //         subject: 'עדכון על מאמר חדש',
+  //       },
+  //       subject: "Hello world",
+  //       text: "Hello plain world!",
+  //       html: "<p>Hello HTML world!</p>",
+  //     };
+
+  //     sgMail.sendMultiple(msg).then((info) => {
+  //       console.log('Emails sent successfully');
+  //     }).catch((err) => {
+  //       console.log('*********** ERROR SENDING EMAILS ********* ', err);
+  //     })
+  //   })
+  //   .catch(() => {
+  //     res.status(400).send("Something is wrong with your request");
+  //   });
 };
 
 const deletePost = async (req, res) => {
@@ -59,9 +104,21 @@ const getPosts = async (req, res) => {
   }
 };
 
+const getRecentPosts = async (req, res) => {
+  try {
+    const recentPosts = await Post.find().sort({ $natural: -1 }).limit(3);
+    if (recentPosts) {
+      res.send(recentPosts);
+    }
+  } catch (e) {
+    res.status(400).send(e);
+  }
+};
+
 module.exports = {
   addPost,
   deletePost,
   updatePost,
   getPosts,
+  getRecentPosts,
 };
