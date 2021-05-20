@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 const NotFound = () => {
   const history = useHistory();
-  
+
   return (
     <NotFoundContainer>
       <h1>נראה שהלכת לאיבוד</h1>
@@ -31,5 +31,9 @@ const NotFoundContainer = styled.div`
 
   h1 {
     margin-bottom: 2rem;
+  }
+
+  img {
+    max-width: 100%;
   }
 `;
