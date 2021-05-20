@@ -28,6 +28,7 @@ function Blog() {
               </PostContainer>
             );
           })}
+          <ArticlesAreComingSoon>מאמרים נוספים בדרך...</ArticlesAreComingSoon>
           <Newsletter title="אהבתם? הרשמו לניווזלטר שלי" />
         </>
       ) : (
@@ -47,6 +48,7 @@ function Blog() {
 }
 
 const BlogContainer = styled.div<{ postsLength: number }>`
+  padding-top: 3rem;
   ${(props) =>
     props.postsLength === 0 &&
     `
@@ -65,6 +67,12 @@ const PostContainer = styled.div`
   h2 {
     line-height: 1.3;
   }
+`;
+
+const ArticlesAreComingSoon = styled.h2`
+  font-size: 2.5rem;
+  line-height: 1.3;
+  font-family: OpenSansHebrewBold;
 `;
 
 const PostNumber = styled.span`

@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components/macro";
-import {mobile} from '../../utils/screen-sizes';
+import { mobile } from "../../utils/screen-sizes";
+import { useLocation } from "react-router-dom";
 
 export const Navbar = () => {
+  const location = useLocation();
   const navLinks = [
     { to: "/", text: "דף הבית", exact: true },
     { to: "/blog", text: "מאמרים", exact: false },
@@ -10,14 +12,20 @@ export const Navbar = () => {
   ];
 
   return (
-    <NavbarContainer style={{padding: 0}}>
-      {navLinks.map((link) => {
-        return (
-          <NavLink key={link.text} exact={link.exact} activeClassName="selected" to={link.to}>
-            {link.text}
-          </NavLink>
-        );
-      })}
+    <NavbarContainer style={{ padding: 0 }}>
+      {!location.pathname.includes("/404") &&
+        navLinks.map((link) => {
+          return (
+            <NavLink
+              key={link.text}
+              exact={link.exact}
+              activeClassName="selected"
+              to={link.to}
+            >
+              {link.text}
+            </NavLink>
+          );
+        })}
     </NavbarContainer>
   );
 };
@@ -46,7 +54,7 @@ const NavbarContainer = styled.nav`
       left: 0;
       width: 100%;
       height: 4rem;
-      border-bottom: 3px solid ${props => props.theme.palette.secondary.main};
+      border-bottom: 3px solid ${(props) => props.theme.palette.secondary.main};
     }
   }
 

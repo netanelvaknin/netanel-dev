@@ -3,26 +3,33 @@ import { ReactComponent as Facebook } from "./icons/facebook.svg";
 import { ReactComponent as Github } from "./icons/github.svg";
 import { ReactComponent as Linkedin } from "./icons/linkedin.svg";
 import { Divider, Container } from "@material-ui/core";
-import {mobile} from '../../utils/screen-sizes';
+import { mobile } from "../../utils/screen-sizes";
+import { useLocation } from "react-router-dom";
 
 export const Footer = () => {
+  const location = useLocation();
+
   return (
     <FooterStyle maxWidth="md" style={{ padding: 0 }}>
-      <Divider />
-      <Content>
-        <p style={{ marginBottom: "1rem" }}>מוזמנים להתחבר</p>
-        <IconsContainer>
-          <a href="https://www.facebook.com/vakninetanel">
-            <FacebookIcon />
-          </a>
-          <a href="https://github.com/netanelvaknin">
-            <GithubIcon />
-          </a>
-          <a href="https://www.linkedin.com/in/netanel-vaknin">
-            <LinkedinIcon />
-          </a>
-        </IconsContainer>
-      </Content>
+      {!location.pathname.includes("/404") && (
+        <>
+          <Divider />
+          <Content>
+            <p style={{ marginBottom: "1rem" }}>מוזמנים להתחבר</p>
+            <IconsContainer>
+              <a href="https://www.facebook.com/vakninetanel">
+                <FacebookIcon />
+              </a>
+              <a href="https://github.com/netanelvaknin">
+                <GithubIcon />
+              </a>
+              <a href="https://www.linkedin.com/in/netanel-vaknin">
+                <LinkedinIcon />
+              </a>
+            </IconsContainer>
+          </Content>
+        </>
+      )}
     </FooterStyle>
   );
 };

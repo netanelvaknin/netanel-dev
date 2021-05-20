@@ -1,11 +1,13 @@
+import {lazy} from 'react';
 import { pageRoutes } from "./routes";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { Navbar, Footer } from "../ui";
 import { Container } from "@material-ui/core";
 import {useScroll} from '../hooks';
 import "./app.css";
 import styled from 'styled-components/macro';
 import {mobile} from '../utils/screen-sizes';
+const NotFound = lazy(() => import("../pages/not-found/NotFound"));
 
 const App = () => {
   const scrollToTop = useScroll();
@@ -21,6 +23,8 @@ const App = () => {
               </Route>
             );
           })}
+          <Route path='/404' component={NotFound} />
+          <Redirect from='*' to='/404' />
         </Switch>
         <Footer />
       </Container>
