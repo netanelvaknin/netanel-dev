@@ -73,6 +73,7 @@ const ArticlesAreComingSoon = styled.h2`
   font-size: 2.5rem;
   line-height: 1.3;
   font-family: OpenSansHebrewBold;
+  margin-top: 5rem;
 `;
 
 const PostNumber = styled.span`

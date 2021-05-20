@@ -21,9 +21,9 @@ import { Button } from "@material-ui/core";
 const Post = () => {
   const [postsLength, setPostsLength] = useState(0);
   const params: { id: string } = useParams();
-  const post: any = useFetchPosts(params.id);
+  const post = useFetchPosts(params.id);
   const history = useHistory();
-  const html = post?.content;
+  const html = post?.content || "<div></div>";
 
   const options = {
     replace: ({ attribs, children }: any) => {
@@ -53,8 +53,9 @@ const Post = () => {
     <div>
       {post ? (
         <PostStyle>
-          <h1>{post?.title}</h1>
-          <SecondaryHeading>{post?.description}</SecondaryHeading>
+          <h1>{post.title}</h1>
+          <SecondaryHeading>{post.description}</SecondaryHeading>
+          <p style={{marginBottom: '3.5rem'}}>נכתב בתאריך: {post.createdAt}</p>
           {parsedHTML}
         </PostStyle>
       ) : (
@@ -155,8 +156,8 @@ const NavigationButtonsContainer = styled.div`
 
 const SecondaryHeading = styled.h3`
   font-family: ${(props) => props.theme.fonts.light};
-  margin-bottom: 3.5rem;
   margin-top: 1.5rem;
+  margin-bottom: 2rem;
   color: rgba(117, 117, 117, 1);
 `;
 

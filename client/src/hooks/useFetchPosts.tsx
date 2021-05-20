@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import instance from "../api";
 
 export const useFetchPosts = (id = "") => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<any>([]);
 
   useEffect(() => {
     if (id) {
