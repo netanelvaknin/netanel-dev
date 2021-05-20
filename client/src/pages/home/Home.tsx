@@ -12,7 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     postsContext?.setPosts(posts);
-    const reveresedPosts = posts.reverse();
+    const reveresedPosts = posts;
     const recentPosts: PostModel[] = [];
     reveresedPosts.forEach((post: PostModel, index: number) => {
       if (index <= 2) {
