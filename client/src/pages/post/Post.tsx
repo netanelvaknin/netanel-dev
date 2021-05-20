@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import { useFetchPosts } from "../../hooks";
-import { PostModel } from "../../context/posts/PostsProvider";
 import parse, { domToReact } from "html-react-parser";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -15,10 +15,14 @@ import {
 import styled from "styled-components/macro";
 import { mobile } from "../../utils/screen-sizes";
 import loader from "../../assets/gifs/loader.gif";
+import instance from "../../api";
+import { Button } from "@material-ui/core";
 
 const Post = () => {
+  const [postsLength, setPostsLength] = useState(0);
   const params: { id: string } = useParams();
-  const post: PostModel = useFetchPosts(params.id)[0];
+  const post: any = useFetchPosts(params.id);
+  const history = useHistory();
   const html = post?.content;
 
   const options = {
@@ -38,6 +42,12 @@ const Post = () => {
   };
 
   const parsedHTML = parse(`${html}`, options);
+
+  useEffect(() => {
+    instance.get("/posts/posts-length").then((response) => {
+      setPostsLength(response.data.length);
+    });
+  }, []);
 
   return (
     <div>
@@ -82,6 +92,28 @@ const Post = () => {
               <WhatsappIcon />
             </WhatsappShareButton>
           </ShareIconsContainer>
+
+          <NavigationButtonsContainer>
+            <div>
+              {Number(params.id) > 1 && (
+                <Button
+                  onClick={() => history.push(`/blog/${Number(params.id) - 1}`)}
+                >
+                  לפוסט הקודם
+                </Button>
+              )}
+            </div>
+
+            <div>
+              {Number(params.id) < postsLength && (
+                <Button
+                  onClick={() => history.push(`/blog/${Number(params.id) + 1}`)}
+                >
+                  לפוסט הבא
+                </Button>
+              )}
+            </div>
+          </NavigationButtonsContainer>
         </>
       )}
     </div>
@@ -112,6 +144,13 @@ const PostStyle = styled.div`
     max-width: 100%;
     max-height: 100%;
   }
+`;
+
+const NavigationButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 5.5rem;
 `;
 
 const SecondaryHeading = styled.h3`

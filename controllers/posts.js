@@ -1,5 +1,5 @@
 const Post = require("../models/posts");
-const Newsletter = require("../models/newsletters");
+// const Newsletter = require("../models/newsletters");
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -89,10 +89,17 @@ const updatePost = async (req, res) => {
 };
 
 const getPosts = async (req, res) => {
+  const id = req.params.id;
   try {
     let posts;
-    if (req.params.id) {
-      posts = await Post.find({ _id: req.params.id });
+    if (id) {
+      const allPosts = await Post.find();
+      if (allPosts) {
+        const index = Number(id) - 1;
+        posts = allPosts[index];
+      } else {
+        res.status(400).send('something went wrong');
+      }
     } else {
       posts = await Post.find();
     }
@@ -115,10 +122,24 @@ const getRecentPosts = async (req, res) => {
   }
 };
 
+const getPostsLength = async (req, res) => {
+  try {
+    const length = await Post.estimatedDocumentCount();
+    if (length) {
+      res.send({length});
+    } else {
+      res.status(400).send('Something went wrong');
+    }
+  } catch (e) {
+    res.status(400).send(e);
+  }
+}
+
 module.exports = {
   addPost,
   deletePost,
   updatePost,
   getPosts,
   getRecentPosts,
+  getPostsLength
 };

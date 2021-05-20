@@ -18,7 +18,7 @@ function Blog() {
             return (
               <PostContainer
                 key={post._id}
-                onClick={() => history.push(`/blog/${post._id}`)}
+                onClick={() => history.push(`/blog/${index + 1}`)}
               >
                 <PostNumber>{index + 1}</PostNumber>
                 <div>
