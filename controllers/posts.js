@@ -14,7 +14,7 @@ const addPost = async (req, res) => {
   } catch (e) {
     res.status(400).send("Something is wrong with your request");
   }
-
+  
   // const post = req.body;
 
   // Newsletter.find()
@@ -108,7 +108,7 @@ const getRecentPosts = async (req, res) => {
   try {
     const recentPosts = await Post.find().sort({ $natural: -1 }).limit(3);
     if (recentPosts) {
-      res.status(200).send(recentPosts);
+      res.send(recentPosts);
     }
   } catch (e) {
     res.status(400).send(e);

@@ -1,5 +1,5 @@
-import { PostModel, PostsContext, PostsContextProps } from "../../context/posts/PostsProvider";
-import {useContext, useEffect, useState} from 'react';
+import { PostModel } from "../../context/posts/PostsProvider";
+import {useEffect, useState} from 'react';
 import Header from './header/Header';
 import Recent from './recent/Recent';
 import Newsletter from './newsletter/Newsletter';
@@ -7,9 +7,9 @@ import instance from '../../api';
 
 const Home = () => {
   const [recentPosts, setRecentPosts] = useState<PostModel[] | []>([]);
-  
+
   useEffect(() => {
-    instance.get('/posts/recent').then(({data}) => {
+    instance.post('/posts/recent').then(({data}) => {
       setRecentPosts(data);
     })
   }, []);
