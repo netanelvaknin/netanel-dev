@@ -3,6 +3,7 @@
   src: local("OpenSansHebrew"),
     url("../assets/fonts/OpenSansHebrew-Regular.ttf") format("truetype");
   font-weight: normal;
+  font-display: swap
 }
 
 @font-face {
@@ -10,6 +11,7 @@
   src: local("OpenSansHebrewBold"),
     url("../assets/fonts/OpenSansHebrew-Bold.ttf") format("truetype");
   font-weight: normal;
+  font-display: swap
 }
 
 @font-face {
@@ -17,6 +19,7 @@
   src: local("OpenSansHebrewLight"),
     url("../assets/fonts/OpenSansHebrew-Light.ttf") format("truetype");
   font-weight: normal;
+  font-display: swap
 }
 
 @font-face {
@@ -24,6 +27,7 @@
   src: local("OpenSansHebrewItalic"),
     url("../assets/fonts/OpenSansHebrew-Italic.ttf") format("truetype");
   font-weight: normal;
+  font-display: swap
 }
 
 * {
