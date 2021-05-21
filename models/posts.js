@@ -6,6 +6,7 @@ const PostSchema = new mongoose.Schema(
     content: { type: String, required: true },
     createdAt: { type: String, required: true },
     description: { type: String },
+    postNumber: { type: Number }
   },
   { collection: "my-posts" }
 );

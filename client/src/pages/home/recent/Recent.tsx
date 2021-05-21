@@ -21,7 +21,7 @@ const Recent = ({ recentPosts }: RecentProps) => {
             return (
               <RecentPost
                 key={post?._id}
-                onClick={() => history.push(`/blog/${post._id}`)}
+                onClick={() => history.push(`/blog/${post.postNumber}`)}
               >
                 <CardTitle>{post?.title}</CardTitle>
               </RecentPost>

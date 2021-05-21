@@ -6,6 +6,7 @@ export interface PostModel {
     title: string;
     createdAt: string;
     description: string;
+    postNumber: number;
 }
 
 interface PostsProviderProps {

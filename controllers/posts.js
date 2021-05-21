@@ -1,13 +1,17 @@
 const Post = require("../models/posts");
 // const Newsletter = require("../models/newsletters");
-const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+// const sgMail = require("@sendgrid/mail");
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const addPost = async (req, res) => {
   const post = req.body;
 
   try {
-    const doc = await Post.create(post);
+    const length = await Post.estimatedDocumentCount();
+    const doc = await Post.create({
+      ...post,
+      postNumber: length + 1
+    });
     if (doc) {
       res.status(200).send("Success!");
     }
