@@ -10,7 +10,7 @@ const Home = () => {
 
   useEffect(() => {
     instance.post('/posts/recent').then(({data}) => {
-      setRecentPosts(data);
+      setRecentPosts(data.reverse());
     })
   }, []);
 
