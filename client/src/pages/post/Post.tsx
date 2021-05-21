@@ -53,9 +53,23 @@ const Post = () => {
     <div>
       {post ? (
         <PostStyle>
+          <Button
+            style={{
+              marginTop: "2rem",
+              marginBottom: "2rem",
+              padding: 0,
+            }}
+            onClick={() => {
+              history.push("/blog");
+            }}
+          >
+            חזרה למאמרים
+          </Button>
           <h1>{post.title}</h1>
           <SecondaryHeading>{post.description}</SecondaryHeading>
-          <p style={{marginBottom: '3.5rem'}}>נכתב בתאריך: {post.createdAt}</p>
+          <p style={{ marginBottom: "3.5rem" }}>
+            נכתב בתאריך: {post.createdAt}
+          </p>
           {parsedHTML}
         </PostStyle>
       ) : (
@@ -98,6 +112,7 @@ const Post = () => {
             <div>
               {Number(params.id) > 1 && (
                 <Button
+                  style={{ padding: 0 }}
                   onClick={() => history.push(`/blog/${Number(params.id) - 1}`)}
                 >
                   לפוסט הקודם
@@ -108,6 +123,7 @@ const Post = () => {
             <div>
               {Number(params.id) < postsLength && (
                 <Button
+                  style={{ padding: 0 }}
                   onClick={() => history.push(`/blog/${Number(params.id) + 1}`)}
                 >
                   לפוסט הבא
@@ -134,7 +150,7 @@ const PostStyle = styled.div`
   }
 
   @media ${mobile} {
-    padding-top: 3rem;
+    padding-top: 1rem;
   }
 
   strong {
