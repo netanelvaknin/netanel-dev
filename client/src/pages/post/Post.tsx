@@ -92,17 +92,17 @@ const Post = () => {
           </strong>
           <ShareIconsContainer>
             <FacebookShareButton
-              url={`https://easy-front.dev/blog/${params.id}`}
+              url={`https://www.easy-front.dev/blog/${params.id}`}
             >
               <FacebookIcon />
             </FacebookShareButton>
             <EmailShareButton
-              url={`https://easy-front.dev/blog/${params.id}`}
+              url={`https://www.easy-front.dev/blog/${params.id}`}
             >
               <EmailIcon />
             </EmailShareButton>
             <WhatsappShareButton
-              url={`https://easy-front.dev/blog/${params.id}`}
+              url={`https://www.easy-front.dev/blog/${params.id}`}
             >
               <WhatsappIcon />
             </WhatsappShareButton>
