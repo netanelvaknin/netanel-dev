@@ -128,7 +128,7 @@ const getRecentPosts = async (req, res) => {
 
 const getPostsLength = async (req, res) => {
   try {
-    const length = await Post.estimatedDocumentCount();
+    const length = await Post.find().countDocuments();
     if (length) {
       res.send({length});
     } else {

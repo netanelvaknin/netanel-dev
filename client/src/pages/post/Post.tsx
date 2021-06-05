@@ -24,7 +24,7 @@ const Post = () => {
   const post = useFetchPosts(params.id);
   const history = useHistory();
   const html = post?.content || "<div></div>";
-
+  
   const options = {
     replace: ({ attribs, children }: any) => {
       if (!attribs) {
