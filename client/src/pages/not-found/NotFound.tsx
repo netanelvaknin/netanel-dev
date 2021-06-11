@@ -16,7 +16,7 @@ const NotFound = () => {
       >
         לחזרה לאתר
       </Button>
-      <img src={NotFoundGif} />
+      <img src={NotFoundGif} alt="תמונה של דף לא נמצא" />
     </NotFoundContainer>
   );
 };

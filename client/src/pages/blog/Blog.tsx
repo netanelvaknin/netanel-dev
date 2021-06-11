@@ -1,13 +1,27 @@
+import { useEffect, useState } from "react";
+import instance from "../../api";
 import { useFetchPosts } from "../../hooks";
 import { PostModel } from "../../context/posts/PostsProvider";
 import styled from "styled-components/macro";
 import { useHistory } from "react-router-dom";
 import loader from "../../assets/gifs/loader.gif";
 import Newsletter from "../home/newsletter/Newsletter";
+import { Pagination } from "@material-ui/lab";
 
 function Blog() {
   const posts = useFetchPosts();
   const history = useHistory();
+  const [postsLength, setPostsLength] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  // if the pagesCount is decimal increment page by one (more than 10 posts)
+  const pagesCount =
+    postsLength % 10 !== 0 ? postsLength / 10 + 1 : postsLength / 10;
+
+  useEffect(() => {
+    instance.get("/posts/posts-length").then((response) => {
+      setPostsLength(response.data.length);
+    });
+  }, []);
 
   return (
     <BlogContainer postsLength={posts.length}>
@@ -28,7 +42,17 @@ function Blog() {
               </PostContainer>
             );
           })}
-          <ArticlesAreComingSoon>מאמרים נוספים בדרך...</ArticlesAreComingSoon>
+
+          <Pagination
+            count={Math.floor(pagesCount)}
+            page={currentPage}
+            variant="outlined"
+            shape="rounded"
+            color="secondary"
+            size="large"
+            onChange={(e, value) => setCurrentPage(value)}
+          />
+
           <Newsletter title="אהבתם? הרשמו לניווזלטר שלי" />
         </>
       ) : (
