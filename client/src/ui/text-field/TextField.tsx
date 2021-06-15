@@ -9,6 +9,7 @@ interface TextFieldProps {
   placeholder?: string;
   error?: boolean;
   errorMessage?: string;
+  className?: string;
 }
 
 export const TextField = ({
@@ -20,6 +21,7 @@ export const TextField = ({
   placeholder,
   error,
   errorMessage,
+  className,
 }: TextFieldProps) => {
   return (
     <MuiTextField
@@ -31,6 +33,7 @@ export const TextField = ({
       error={error}
       helperText={errorMessage}
       variant="outlined"
+      className={className}
     />
   );
 };
