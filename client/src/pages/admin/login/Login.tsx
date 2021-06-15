@@ -65,7 +65,7 @@ function Login() {
       />
 
       <ButtonStyle variant="contained" color="secondary" type="submit">
-        Login
+        כניסה
       </ButtonStyle>
 
       {errors.username && (
