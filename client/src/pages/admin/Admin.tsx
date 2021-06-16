@@ -5,6 +5,8 @@ import AddPost from "./add-post/AddPost";
 import MyPosts from "./my-posts/MyPosts";
 import Login from "./login/Login";
 import { useRouteMatch, Switch, Route } from "react-router-dom";
+import { Sidebar } from "./AdminStyles";
+import { Button } from "@material-ui/core";
 
 function Admin() {
   const { url } = useRouteMatch();
@@ -20,26 +22,14 @@ function Admin() {
   return (
     <div style={{ display: "flex" }}>
       {history.location.pathname !== "/admin/login" && (
-        <nav
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            height: "100vh",
-            width: "20rem",
-            paddingTop: "3rem",
-          }}
-        >
-          <button onClick={() => history.push(`${url}/posts`)}>
+        <Sidebar>
+          <Button onClick={() => history.push(`${url}/posts`)}>
             המאמרים שלי
-          </button>
-          <button onClick={() => history.push(`${url}/posts/insert`)}>
+          </Button>
+          <Button onClick={() => history.push(`${url}/posts/insert`)}>
             הוסף מאמר חדש
-          </button>
-          <button onClick={() => history.push('/')}>
-            דף הבית
-          </button>
-        </nav>
+          </Button>
+        </Sidebar>
       )}
 
       <Switch>

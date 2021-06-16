@@ -59,7 +59,7 @@ function AddPost() {
             _id: postId,
             content,
             title: formValues.title,
-            description: formValues.description
+            description: formValues.description,
           },
           {
             headers: {

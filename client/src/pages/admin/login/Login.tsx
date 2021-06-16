@@ -29,7 +29,7 @@ function Login() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  console.log(errors);
+
   const onSubmit = async ({ email, password }: LoginValues) => {
     try {
       const response = await instance.post("/admin/login", { email, password });
